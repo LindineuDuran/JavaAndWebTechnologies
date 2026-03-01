@@ -6,6 +6,7 @@ package br.com.lduran.entity;
 
 import java.time.LocalDate;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
 import lombok.Data;
 
 /**
@@ -21,4 +22,9 @@ public class Todo {
     private boolean isCompleted;
     private LocalDate dateCreated;
     private LocalDate dateComplited;
+    
+    @PrePersist
+    private void init(){
+        setDateCreated(LocalDate.now());
+    }
 }
