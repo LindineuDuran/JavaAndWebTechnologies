@@ -1,0 +1,6 @@
+Comando para subir a aplicação:
+java -jar pms.jar --deploy "D:\Desenvolvimento de Sistemas\GitHub\JavaAndWebTechnologies\Java Enterprise Edition 8\hello-javaee8\target\hello-javaee8.war"
+
+
+Realizar uma chamada à API:
+http://localhost:8080/hello-javaee8/resources/ping
