@@ -1,0 +1,150 @@
+type: collection.insomnia.rest/5.0
+name: Hello-ToDo Collection
+meta:
+  id: wrk_41a853b86def4c8485b6cb9dccd947d0
+  created: 1742586510916
+  modified: 1742586510916
+collection:
+  - url: localhost:8080/hello-todo/api/v1/todo/new
+    name: Create a New ToDo
+    meta:
+      id: req_c58d091ed4ed4c4ebe4cf906fb23ddda
+      created: 1742586521232
+      modified: 1743595391516
+      isPrivate: false
+      sortKey: -1742670527806
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"task": "Ligar para o Paiva",
+        	"dueDate": "2025-04-01"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/hello-todo/api/v1/todo/1
+    name: Find a Todo By a Id
+    meta:
+      id: req_12c7c121198a4c1fa4d1ba907b81ee0f
+      created: 1742588027729
+      modified: 1742672910052
+      isPrivate: false
+      sortKey: -1742670527781
+    method: GET
+    parameters:
+      - id: pair_3cd0cf69598d4993ad1a20d85a51dfa4
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/hello-todo/api/v1/todo/update
+    name: Change ToDo Details
+    meta:
+      id: req_09937d0528a5423fabe65cb1983ede51
+      created: 1742658074638
+      modified: 1742730067526
+      isPrivate: false
+      sortKey: -1742658074638
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        		"completed": false,
+        		"dateCreated": "2025-03-23",
+        		"dueDate": "2025-03-23",
+        		"id": 3,
+        		"task": "Banho e Tosa"
+        	}
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/hello-todo/api/v1/todo/list
+    name: Show the ToDo List
+    meta:
+      id: req_f7e4575492424801a7fbf1c39cc3b68c
+      created: 1742658185878
+      modified: 1742672862645
+      isPrivate: false
+      sortKey: -1742670527756
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/hello-todo/api/v1/todo/status
+    name: Set ToDo as Complited
+    meta:
+      id: req_5a41e37118a042b4b5800c812cd4540d
+      created: 1742670527706
+      modified: 1742672772295
+      isPrivate: false
+      sortKey: -1742670527706
+    method: POST
+    parameters:
+      - id: pair_a1f9650e9b3246ce8aeba9ab24b077bd
+        name: id
+        value: "1"
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.0
+        id: pair_e9fdb45be0624e6e90cdb2a5b56a0617
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a1a0b16938dd24555a89b3833078fd1f69b7f80c
+    created: 1742586510923
+    modified: 1742586510923
+environments:
+  name: Base Environment
+  meta:
+    id: env_a1a0b16938dd24555a89b3833078fd1f69b7f80c
+    created: 1742586510920
+    modified: 1742586510920
+    isPrivate: false

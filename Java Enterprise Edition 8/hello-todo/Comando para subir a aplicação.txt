@@ -1,0 +1,11 @@
+Renomear payara-micro-5.2022.5.jar para pm.jar
+
+Comando para subir a aplicação:
+java -jar pm.jar --deploy target\hello-todo.war --port 8080
+
+
+Empacotar a aplicação junto com o servidor:
+java -jar pm.jar --deploy target\hello-todo.war --port 8080 --outputUberJar helloTodo.jar
+
+Empacotar e Fazer Deploy Usando Payara Micro:
+mvn package payara-micro:start
