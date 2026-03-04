@@ -18,7 +18,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 /**
  *
@@ -43,7 +42,7 @@ public class TodoRest
 
     @Path("update/{id}")
     @PUT
-    public Response updateTodo(@PathParam("id") Long id, @RequestBody Todo todo)
+    public Response updateTodo(@PathParam("id") Long id, Todo todo)
     {
         todoService.updateTodo(id, todo);
         return Response.ok(todo).build();
