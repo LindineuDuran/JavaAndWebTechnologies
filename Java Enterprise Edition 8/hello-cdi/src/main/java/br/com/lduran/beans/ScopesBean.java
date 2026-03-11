@@ -1,24 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.lduran.beans;
 
+import br.com.lduran.annotations.Web;
+import br.com.lduran.scopes.ApplicationScope;
 import br.com.lduran.scopes.DependentScope;
 import br.com.lduran.scopes.RequestScope;
 import br.com.lduran.scopes.SessionScope;
+import br.com.lduran.sessionbeans.AuditedService;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
-/**
- *
- * @author lsdur
- */
+@Web
 public class ScopesBean implements Serializable
 {
+
     // Field injection point
     @Inject
     private RequestScope requestScope;
+    
+    @Inject
+    private ApplicationScope applicationScope;
+
+    @Inject
+    private AuditedService auditedService;
+
+    //Producer object
+    @Inject
+    private Logger logger;
 
     private DependentScope dependentScope;
 
@@ -36,5 +47,40 @@ public class ScopesBean implements Serializable
     private void setSessionScope(SessionScope sessionScope)
     {
         this.sessionScope = sessionScope;
+    }
+
+    //Lifecyle callback
+    @PostConstruct
+    private void init()
+    {
+        auditedService.auditedMethod();
+        logger.log(Level.INFO, "*******************************************");
+        logger.log(Level.INFO, "Scopes bean called");
+        logger.log(Level.INFO, "********************************************");
+
+    }
+
+    @PreDestroy
+    private void kill()
+    {
+        logger.log(Level.INFO, "*******************************************");
+        logger.log(Level.INFO, "Scopes bean gonna be killed :-( ");
+        logger.log(Level.INFO, "********************************************");
+    }
+
+    public String requestScopeHashCode() {
+        return requestScope.getHashCode();
+    }
+
+    public String applicatioinScopeHashCode() {
+        return applicationScope.getHashCode();
+    }
+
+    public String sessionScopeHashCode() {
+        return sessionScope.getHashCode();
+    }
+
+    public String dependentScopeHashCode() {
+        return dependentScope.getHashCode();
     }
 }
